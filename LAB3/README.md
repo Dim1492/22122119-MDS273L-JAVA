@@ -11,6 +11,11 @@ The program should have a minimum of 3 functions apart from the main function; e
 
 *****************************************
 
+
+FLOWCHART:
+![image](https://user-images.githubusercontent.com/118504559/219307190-bc20e1b4-68bd-4b2e-9e3d-cdd58f812a15.png)
+
+
 SAMPLE OUTPUT:
 
 Enter the number of values u want in the array: 
