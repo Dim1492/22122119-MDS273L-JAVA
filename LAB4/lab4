@@ -1,0 +1,97 @@
+import java.util.*;
+public class lab4 {
+    static int AccountNumber;
+    static String AccHolderName;
+    static float AccountBalance;
+    Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        InitializeCustomer();
+        int choice = 0;
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("Menu:");
+            System.out.println("1. Deposit money");
+            System.out.println("2. Withdraw money");
+            System.out.println("3. Print transactions");
+            System.out.println("4. Print account summary");
+            System.out.println("5. Exit");
+            choice = Integer.parseInt(scan.nextLine());
+            switch (choice) {
+                case 1:
+                    depositMoney();
+                    break;
+                case 2:
+                    withdrawal();
+                    break;
+                case 3:
+                    transactions();
+                    break;
+                case 4:
+                    printAccountSummary();
+                    break;
+                case 5:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        }
+    }
+    static String InitializeCustomer(int AccountNumber,String AccHolderName,float AccountBalance){
+System.out.println("Account Number: ");
+AccountNumber=Integer.parseInt(scan.nextLine());
+System.out.println("Enter the account holder name: ");
+AccHolderName=scan.nextLine();
+System.out.println("Enter the account Balance :");
+AccountBalance=Float.parseFloat(scan.nextLine());
+    }
+static void depositMoney(){
+        System.out.println("Enter the money that needs to be deposited :");
+          float amount=Float.parseFloat(scan.nextLine());
+         float previousBalance =AccountBalance;
+         AccountBalance+=amount;
+         String transactionDetails = "Deposited: " +amount + ", Previous Balance: " + previousBalance + ", New Balance: " + AccountBalance + "\n";
+        System.out.println("Deposit successful");
+        addToTransactionHistory(transactionDetails);
+         System.out.println(" The updated Account Balance is: "+AccountBalance);
+
+    }
+static void withdrawal(){
+        System.out.println("Enter the amount to be withdrawn: ");
+         float amount=Float.parseFloat(scan.nextLine());
+         float previousBalance = AccountBalance;
+        if(amount>AccountBalance){
+            System.out.println("Insufficient Balance!!!!");
+        }else{
+            AccountBalance -=amount;
+            String transactionDetails = "Withdrawn: " + amount + ", Previous Balance: " + previousBalance + ", New Balance: " + AccountBalance + "\n";
+            System.out.println("Withdrawal successful");
+            addToTransactionHistory(transactionDetails);
+
+        }
+        }
+        static void transactions() {
+            System.out.println("Transaction History:");
+            System.out.println(getTransactionHistory());
+        }
+       static void printAccountSummary() {
+            System.out.println("Account number: " + AccountNumber);
+            System.out.println("Account holder name: " + AccHolderName);
+            System.out.println("Account balance: " + AccountBalance);
+        }
+        private static String transactionHistory = "";
+
+    private static void addToTransactionHistory(String transactionDetails) {
+        transactionHistory += transactionDetails;
+    }
+
+    private static String getTransactionHistory() {
+        return transactionHistory;
+    }
+    
+
+    }
+    
+
