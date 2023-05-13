@@ -1,3 +1,5 @@
+### QUESTION
+
 Create a student class, that will store the details of the Student
 Reg. No.
 Name
@@ -16,3 +18,7 @@ Search for the details of a student from the array of Student
 (Optional) Searching can be done with Name & Register Number
 Display all students
 Displays the details of all students
+
+
+### FLOW CHART
+![image](https://github.com/Dim1492/22122119-MDS273L-JAVA/assets/118504559/1410772b-ba39-43aa-a1fb-56fac0d868d6)
