@@ -1,47 +1,54 @@
 
 import java.util.*;
-class lab1 {
+public class lab1 {
     public static void main(String[] args){
         String Name;
         int Age;
         String Class;
         char Gender;
-        
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter Name,Age,Class");
-        Name = scan.nextLine();
-        Age = Integer.parseInt(scan.nextLine());
-        Class = scan.nextLine();
-        System.out.println("Name :"+Name+"\nAge :"+Age+"\nClass :"+Class);
-        System.out.println("Enter M/F:");
-        Gender = scan.nextLine().charAt(0);
-        if(Gender=='M'){
-            System.out.println("Gender: Male");
-        }else if (Gender=='F'){
-            System.out.println("Gender : Female ");
-        }else{
-            System.out.println("Enter a valid choice!!");
-        }
         String State;
-        System.out.println("Enter  State SOUTH/NORTH/EAST/WEST :");
-        State =scan.nextLine();
-        switch(State){
-            case "SOUTH":
-                System.out.println("The Student is from Southern states of India");
-                break;
-            case "NORTH":
-                System.out.println("The Student is from Northern states of India");
-                break;
-            case "EAST":
-                System.out.println("The Student is from Eastern states of India");
-                break;
-            case "WEST":
-                System.out.println("The Student is from Western states of India");
-                break;
-            default:
-                System.out.println("Enter a valid choice");
-        }
-
+        Scanner scan=new Scanner(System.in);
         
+        System.out.print("Enter Your Name : ");
+        Name=scan.nextLine();
+        System.out.print("Enter ur age : ");
+        Age=Integer.parseInt(scan.nextLine());
+        System.out.print("Enter class :" );
+        Class=scan.nextLine();
+
+        System.out.print("Gender : ");
+        Gender=scan.nextLine().charAt(0);
+        if(Gender=='m'){
+            System.out.println("Male");
+        }else if(Gender=='f'){
+            System.out.println("Female");
+        }
+        
+        
+        System.out.print("Enter where u are from : ");
+        State=scan.nextLine();
+        System.out.println("STUDENT DETAILS");
+        
+        System.out.println("Name :"+Name);
+        System.out.println("Age :"+Age);
+        System.out.println("Class :"+Class);
+        System.out.println("Gender :"+Gender);
+        System.out.println("State :"+State);
+        switch(State){
+            case "Kerala":
+            case "KN":
+            case "TN":
+            System.out.println("The student is from Southern States of India");
+            break;
+            case "Delhi":
+            case "Jammu":
+            System.out.println("Northern States of India");
+            break;
+
+        }
+       
+        
+        
+
     }
 }
