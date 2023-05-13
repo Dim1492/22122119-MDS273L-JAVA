@@ -6,3 +6,7 @@
 #### Least Five repeated words and their count.
 #### Top Five repeated characters and their count.
 #### Least FIve repeated characters and their count.
+
+
+### FLOW CHART
+![image](https://github.com/Dim1492/22122119-MDS273L-JAVA/assets/118504559/6a6bcec7-f07e-4fe0-b2fe-e1928e02a205)
