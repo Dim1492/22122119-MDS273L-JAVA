@@ -1,107 +1,78 @@
-package LAB2;
 
 import java.util.*;
 
-public class lab2{
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        int n=5;
-        String[] names=new String[n];
-        int Option;
-        char c;
-      
-        do{
-        System.out.println("MENU");
-        System.out.println("1.Enter the name");
-        System.out.println("2.Search for a name");
-        System.out.println("3.Remove a name");
-        System.out.println("4.Show all names");
-        System.out.println("5.Exit the program");
-        System.out.println("Choose the right option");
-        
-        Option=Integer.parseInt(scan.nextLine());
-        switch(Option){
-            case 1:
-            System.out.println("Enter a name:");
-          for(int i=0;i<n;i++){
-            names[i]=scan.nextLine();
-          }
-            break;
-            case 2:
-          System.out.println("Enter a name to search:");
-          String name = scan.nextLine();
-          boolean found = false;
-         for (int i = 0; i < n; i++) {
-            if (names[i].equals(name)) {
-             System.out.println("Name found at index: " + i);
-             System.out.println("Name is:" +names[i]);
-             found = true;
-             break;
-}
-}
-if (!found) {
-System.out.println("Name not found.");
-}
-break;
-
-case 3:
-System.out.println("Enter a name to remove:");
-name = scan.nextLine();
-int index = -1;
-for (int i = 0; i < n; i++) {
-if (names[i].equals(name)) {
-index = i;
-break;
-}
-}
-if (index == -1) {
-System.out.println("Name not found.");
-break;
-} else {
-for (int i = index; i < n - 1; i++) {
-names[i] = names[i + 1];
-}
-n--;
-System.out.println("Name removed successfully.");
-}
-break;
-          
+class lab2{
+  public static void main(String[] args){
+      Scanner scan=new Scanner(System.in);
+      String[] names=new String[1024];
+      int a=0;
+      int option;
+      do{
+          System.out.println("choose which operation to be done:\n 1.Enter a name\n 2.Search for a name \n 3.Remove a name \n4. Show all names");
+          int choice=Integer.parseInt(scan.nextLine());
+          switch(choice){
+              case 1:
+              System.out.println("Enter the num of names u want to enter:");
+              int num=Integer.parseInt(scan.nextLine());
+              for(int i=0;i<num;i++){
+              System.out.println("Enter the names:");
+               String name=scan.nextLine();
+               boolean found=false;
                
-
-
-        case 4:
-          System.out.println("List of all names:");
-          for (int i = 0; i < n; i++) {
-            System.out.println(names[i]);
-          }
-          break;
-
-        case 5:
-          System.out.println("Exiting the program...");
-          break;
-
-        default:
-          System.out.println("Invalid choice, try again.");
+                  for(int j=0;j<names.length;j++){
+                      if(name.equals(names[j])){
+                          System.out.println("name already exists");
+                          found=true;
+                          break;
+                          
+                      }          
+                      
+                  } if(!found){
+                      names[a]=name;
+                      a++;
+                  }
+                  }
+               break;
+                case 2:
+                System.out.println("enter the name u want to search : ");
+                String searchName=scan.nextLine();
+                boolean found=false;
+                  for(int i=0;i<a;i++){
+                      if(names[i].equals(searchName)){
+                          System.out.println("The name is: "+searchName+" with the index : " +i);
+                          found=true;
+                          break;   
+                      }  
+                  }if(!found){
+                      System.out.println("Name not found");
+                  }
+                  break;
+                  case 3:
+                  System.out.println("Enter the name you want to remove : ");
+                  String removeName=scan.nextLine();
+                  boolean exists=false;
+                  for(int i=0;i<a;i++){
+                      if(names[i].equals(removeName)){
+                          names[i]=names[i+1];
+                          System.out.println("The name "+removeName+" is removed");
+                          exists=true;
+                          a--;
+                      }
+                     
+                  }if(!exists){
+                      System.out.println("the name doesnt exist");
+                  }
+                  break;
+                  case 4:
+                  for(int i=0;i<a;i++){
+                      System.out.println(names[i]);
+                  }
+                  System.out.println();
+                  break;
+                }
+              System.out.println("Do you want to continue: Press 1.yes or 2.No");
+              option=Integer.parseInt(scan.nextLine());
+          }while(option==1);
       }
-      
-      System.out.println("If you want to continue press(Yes/yes)");
-      c=scan.nextLine().charAt(0);
-
-      
-
-    } while ( c=='Y'||c=='y');
-    
   }
-}
-
-
-
-
-        
-        
-
-        
-
-        
-
-    
+  
